@@ -1,0 +1,7 @@
+<p>
+    supe-hero-list-page works!
+</p>
+
+<ul>
+    <li *ngFor="let hero of heroes" (click)="goToDetail(hero.confirmed)">{{hero.confirmed}}</li>
+</ul>

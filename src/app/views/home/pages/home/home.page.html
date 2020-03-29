@@ -1,0 +1,53 @@
+<div id="cardLog" class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <div id="HeadCard" class="card-header">
+        <p id="titleUser">User Profile</p>
+        <button class="btn btn-secondary"  id="buttonLog" (click)="authService.SignOut()">
+            <p  *ngIf="authService.userData else loggedOut"
+                class="fas fa-sign-out-alt">{{authService.userData.login}}</p>
+            <ng-template #loggedOut>
+                <p>Log in</p>
+            </ng-template>
+        </button>
+    </div>
+    <div class="card-body" *ngIf="authService.userData && authService.userData.displayName != '' ">
+        <!-- <img id="perfilPhoto" class="align-self-start mr-5 img-thumbnail rounded-circle"
+                src="{{(authService.userData.photoURL) ? authService.userData.photoURL : '/assets/dummy-authService.userData.png'}}"
+                alt="{{authService.userData.displayName}}"> -->
+        <p class="card-title">Hello:
+            {{(authService.userData.displayName) ? authService.userData.displayName : ' '}}</p>
+        <p class="card-text">User ID: {{authService.userData.uid}}</p>
+        <p class="card-text">Email: {{authService.userData.email}}</p>
+        <p class="card-text">Email Verified: {{authService.userData.emailVerified}}</p>
+    </div>
+</div>
+
+
+
+
+
+<!-- <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="example-form">
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+              <td><mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+              </mat-form-field></td>
+            </tr></table>
+          </form>
+          <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button (click)="login()" color="primary">Login</button>
+        </mat-card-actions>
+      </mat-card> -->
